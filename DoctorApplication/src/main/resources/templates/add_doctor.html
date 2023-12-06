@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Doctor</title>
+    
+     <style>
+    
+        tr:hover {
+            background-color: rgb(0, 255, 128); 
+        }
+
+        tr {
+            background-color: rgb(0, 255, 255); 
+        }
+
+      
+        th,
+        td {
+            border-style: dotted;
+            padding: 15px;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <h1>Add Doctor</h1>
+
+    <form method="post" th:action="@{/doctors/save}" th:object="${doctor}">
+        <table border="1">
+            <tr>
+                <td>NAME:</td>
+                <td><input type="text" th:field="*{name}" /></td>
+            </tr>
+            <tr>
+                <td>QUALIFICATION:</td>
+                <td><input type="text" th:field="*{qualification}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Save" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

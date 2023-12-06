@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>List of Doctors</title>
+
+	<style>
+		tr:hover {
+			background-color: rgb(0, 255, 255);
+		}
+
+		tr {
+			background-color: rgb(128, 255, 0);
+		}
+
+
+		th,
+		td {
+			border-style: dotted;
+			padding: 15px;
+		}
+	</style>
+
+
+
+</head>
+
+<body>
+	<h1>List of Doctors</h1>
+
+	<table border="1">
+		<thead>
+			<tr>
+				<th bgcolor="violet">ID</th>
+				<th bgcolor="violet">Name</th>
+				<th bgcolor="violet">Qualification</th>
+				<th bgcolor="violet">Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr th:each="doctor : ${doctors}">
+				<td th:text="${doctor.id}"></td>
+				<td th:text="${doctor.name}"></td>
+				<td th:text="${doctor.qualification}"></td>
+				<td>
+
+					<a th:href="@{/doctors/edit/{id}(id=${doctor.id})}">Edit</a>
+					<a th:href="@{/doctors/delete/{id}(id=${doctor.id})}"
+						onclick="return confirm('Are you sure you want to delete?');">Delete</a>
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="/doctors/add">Add Doctor</a>
+</body>
+
+</html>
